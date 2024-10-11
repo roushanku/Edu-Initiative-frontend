@@ -9,16 +9,16 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Services",
+      href: "/services",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Become a teacher",
+      href: "/become-a-teacher",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Contact Us",
+      href: "/contact-us",
     },
     {
       label: "About",
@@ -27,37 +27,37 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Become a Teacher",
+      href: "/become-a-teacher",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Contact Us",
+      href: "/contact-us",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "About",
+      href: "/about",
     },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
+    // {
+    //   label: "Calendar",
+    //   href: "/calendar",
+    // },
+    // {
+    //   label: "Settings",
+    //   href: "/settings",
+    // },
+    // {
+    //   label: "Help & Feedback",
+    //   href: "/help-feedback",
+    // },
+    // {
+    //   label: "Logout",
+    //   href: "/logout",
+    // },
   ],
   links: {
     github: "https://github.com/nextui-org/nextui",
