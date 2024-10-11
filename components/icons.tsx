@@ -13,6 +13,7 @@ export const Logo: React.FC<IconSvgProps> = ({
     height={size || height}
     viewBox="0 0 32 32"
     width={size || width}
+    color="green"
     {...props}
   >
     <path

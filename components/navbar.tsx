@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -25,6 +26,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import ServicesDropDown from "./services/dropdown";
 
 export const Navbar = () => {
   const searchInput = (
@@ -54,24 +56,65 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
+        <ul className=" hidden sm:flex space-x-4">
+          {/* Home */}
+          <li>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium text-sm"
+              )}
+              href="/"
+            >
+              Home
+            </NextLink>
+          </li>
+
+          {/* Services with Dropdown */}
+          <li className="relative p-0 m-0">
+            <ServicesDropDown />
+          </li>
+
+          {/* Become a Teacher */}
+          <li>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium text-sm"
+              )}
+              href="/become-a-teacher"
+            >
+              Become a teacher
+            </NextLink>
+          </li>
+
+          {/* Contact */}
+          <li>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium text-sm"
+              )}
+              href="/contact-us"
+            >
+              Contact Us
+            </NextLink>
+          </li>
+
+          {/* About */}
+          <li>
+            <NextLink
+              className={clsx(
+                linkStyles({ color: "foreground" }),
+                "data-[active=true]:text-primary data-[active=true]:font-medium text-sm"
+              )}
+              href="/about"
+            >
+              About
+            </NextLink>
+          </li>
         </ul>
       </NavbarContent>
 
@@ -111,7 +154,7 @@ export const Navbar = () => {
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
-        <NavbarMenuToggle />
+        <NavbarMenuToggle className="block lg:hidden" />
       </NavbarContent>
 
       <NavbarMenu>
@@ -127,7 +170,7 @@ export const Navbar = () => {
                       ? "danger"
                       : "foreground"
                 }
-                href="#"
+                href={item.href}
                 size="lg"
               >
                 {item.label}
