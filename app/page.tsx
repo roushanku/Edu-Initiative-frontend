@@ -6,6 +6,8 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import TutorCard from "@/components/Home/batch-card";
+import TeacherCard from "@/components/Home/tutor-card";
 
 export default function Home() {
   return (
