@@ -8,6 +8,7 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import TutorCard from "@/components/Home/batch-card";
 import TeacherCard from "@/components/Home/tutor-card";
+import WhyUscard from "@/components/Home/WhyUsCars";
 
 export default function Home() {
   return (
@@ -53,6 +54,20 @@ export default function Home() {
           </span>
         </Snippet>
       </div>
+      <TeacherCard
+        tutorName="John Doe djdidojddddddddddddddddddddddddd"
+        expertise="Physics, Maths, jdjidoeoe, djdodirrrrrrr"
+        feesPerHour={500}
+        rating={4}
+        imageUrl="https://randomuser.me/api/portraits/men/32.jpg"
+        description="Experienced tutor specializing in Physics and Mathematics with over 10 years of experience."
+      />
+      <WhyUscard
+        imageUrl="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvam9iNjgwLTE2Ni1wLWwxZGJ1cTN2LnBuZw.png"
+        title="BEST DEALS"
+        description="Save big on the best deals"
+        buttonText="VIEW NOW"
+      />
     </section>
   );
 }
