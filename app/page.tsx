@@ -1,73 +1,72 @@
+import Image from "next/image";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
 import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
-
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import TutorCard from "@/components/Home/batch-card";
-import TeacherCard from "@/components/Home/tutor-card";
-import WhyUscard from "@/components/Home/WhyUsCars";
+import {
+  InformationDiamondIcon,
+  InformationSquareIcon,
+  TeacherIcon,
+} from "hugeicons-react";
+import HomePageHeader from "@/components/Home/header";
+import Note from "@/components/widgets/Note";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
-        <span className={title()}>Make&nbsp;</span>
-        <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-        <br />
-        <span className={title()}>
-          websites regardless of your design experience.
-        </span>
-        <div className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
+    <>
+      <HomePageHeader />
+      {/* <HeroSection /> */}
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 relative">
+        <div className="inline-block max-w-3xl text-center justify-center z-10">
+          <span className={title()}>Empowering&nbsp;</span>
+          <span className={title({ color: "violet" })}>Education&nbsp;</span>
+          <br />
+          <span className={title()}>Through Innovative Solutions.</span>
+          <div className={subtitle({ class: "mt-4" })}>
+            Leveraging my education in Computer Science, I aim to bridge the gap
+            between technology and education, enabling students and educators to
+            thrive in a digital world.
+          </div>
         </div>
-      </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href={siteConfig.links.docs}
-        >
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
-      </div>
+        <div className="flex gap-3 z-10">
+          <Link
+            isExternal
+            className={buttonStyles({
+              color: "primary",
+              radius: "md",
+              variant: "shadow",
+            })}
+            href={siteConfig.links.docs}
+          >
+            <TeacherIcon size={20} />
+            Hire Tutor
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({ variant: "bordered", radius: "md" })}
+            href={siteConfig.links.github}
+          >
+            <InformationSquareIcon size={20} />
+            Know More
+          </Link>
+        </div>
 
-      <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
-          <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
-          </span>
-        </Snippet>
-      </div>
-      <TeacherCard
-        tutorName="John Doe djdidojddddddddddddddddddddddddd"
-        expertise="Physics, Maths, jdjidoeoe, djdodirrrrrrr"
-        feesPerHour={500}
-        rating={4}
-        imageUrl="https://randomuser.me/api/portraits/men/32.jpg"
-        description="Experienced tutor specializing in Physics and Mathematics with over 10 years of experience."
-      />
-      <WhyUscard
-        imageUrl="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvam9iNjgwLTE2Ni1wLWwxZGJ1cTN2LnBuZw.png"
-        title="BEST DEALS"
-        description="Save big on the best deals"
-        buttonText="VIEW NOW"
-      />
-    </section>
+        <div className="m-auto max-w-5xl mt-3 overflow-hidden">
+          <Image
+            className="mx-auto rounded-md w-full"
+            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+            loading="eager"
+            width={1024}
+            height={576}
+            src="/hero-image-2.jpg"
+            alt={""}
+          />
+        </div>
+      </section>
+      <Note />
+    </>
   );
 }
