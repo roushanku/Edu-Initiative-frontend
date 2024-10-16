@@ -13,6 +13,8 @@ import {
 import HomePageHeader from "@/components/Home/header";
 import Note from "@/components/widgets/Note";
 
+import InfoBar from "@/components/information_bar";
+
 export default function Home() {
   return (
     <>
@@ -53,6 +55,8 @@ export default function Home() {
             Know More
           </Link>
         </div>
+
+        <InfoBar/>
 
         <div className="m-auto max-w-5xl mt-3 overflow-hidden">
           <Image
