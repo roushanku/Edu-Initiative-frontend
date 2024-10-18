@@ -52,7 +52,7 @@ export default function RootLayout({
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className=" flex-grow">{children}</main>
-            <footer className="w-full flex items-center justify-center py-3">
+            <footer className="w-full flex items-center justify-center py-3 bg-slate-100">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"

@@ -6,7 +6,7 @@ const HomePageHeader = () => {
     <div className="mt-1 bg-slate-200 w-full flex justify-center h-auto py-5 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-4xl">
         <div className="text-center md:text-left mb-4 md:mb-0">
-          <h1 className="text-xl font-bold text-gray-800">Tution Wale</h1>
+          <h1 className="text-xl font-bold text-gray-800">TutorConnect</h1>
           <p className="text-gray-600 text-sm">
             Better Education for better future{" "}
           </p>

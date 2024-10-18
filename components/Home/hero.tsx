@@ -1,31 +1,49 @@
-import Link from 'next/link'; // Step 1: Import Link
+import React from "react";
 
-function HeroSection() {
+const Hero = () => {
   return (
-    <section className="flex flex-col items-center bg-[url('https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center bg-opacity-90 justify-center py-8 md:py-10 relative w-full h-[60vh]">
-      <div className="w-full h-full flex flex-col items-center justify-center z-10 tracking-wide">
-        <div className="text-center text-2xl md:text-4xl font-extralight text-white p-4">
-          Empowering education for every 
-          <span className="font-bold text-yellow-400 p-2 border-b-2 border-green-700">child</span>
-          connecting dedicated home 
-          <span className="mx-2 font-bold text-yellow-400 md:text-blue-900 p-2 border-b-2 border-green-700 rounded-lg">tutors.</span>
-        </div>
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 relative">
+      <div className="inline-block max-w-3xl text-center justify-center z-10">
+        {/* Title */}
+        <h1 className="text-9xl sm:text-5xl md:text-6xl font-bold  mb-6">
+          Empowering&nbsp;
+          <span className="text-purple-500">
+            Education <br />
+          </span>{" "}
+          Through Innovative Solutions.
+        </h1>
 
-        <div className="flex w-full justify-center mt-5">
-          <Link href="/hire-tutor"> {/* Step 2: Use Link for navigation */}
-            <button className="bg-[#1D4ED8] text-white border-solid border-medium border-[#1D4ED8] rounded-xl px-5 py-3 m-3 hover:text-[#1D4ED8] hover:bg-white shadow-sm">
-              Hire Tutor
-            </button>
-          </Link>
-          <Link href="/show-more"> {/* Step 2: Use Link for navigation */}
-            <button className="bg-white text-black border-solid border-medium border-slate-500 rounded-xl px-5 py-3 m-3 hover:text-white hover:bg-slate-600 shadow-sm">
-              Show More
-            </button>
-          </Link>
+        {/* Subtitle */}
+        <p className="w-full md:w-1/2 my-2 text-lg lg:text-xl text-default-600 block max-w-full">
+          <span className="font-semibold">Tution Wale</span> Leveraging my
+          education in Computer Science, I aim to bridge the gap between
+          technology and education, enabling students and educators to thrive in
+          a digital world.
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex justify-center space-x-4">
+          <a
+            href="https://github.com/onwidget/astrowind"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-700 transition"
+          >
+            Get template{" "}
+            <span role="img" aria-label="download">
+              ⬇️
+            </span>
+          </a>
+          <a
+            href="#features"
+            className="border border-gray-400 text-gray-300 font-semibold py-3 px-6 rounded-md hover:bg-gray-800 transition"
+          >
+            Learn more
+          </a>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default HeroSection;
+export default Hero;
