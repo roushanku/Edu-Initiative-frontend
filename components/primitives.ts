@@ -1,5 +1,4 @@
 import { tv } from "tailwind-variants";
-
 export const title = tv({
   base: "tracking-tight inline font-semibold",
   variants: {
