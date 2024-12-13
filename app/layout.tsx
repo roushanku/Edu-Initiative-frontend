@@ -7,14 +7,8 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
-import {
-  FlipPhoneIcon,
-  Mail01Icon,
-  PhoneOff01Icon,
-  TelephoneIcon,
-} from "hugeicons-react";
-import HomePageHeader from "@/components/Home/header";
+import { Navbar } from "@/components/Navbar";
+import HomePageHeader from "@/components/Home/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -51,7 +45,12 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className=" flex-grow">{children}</main>
+            <main className=" flex-grow">
+              <div>
+                <HomePageHeader />
+              </div>
+              {children}
+            </main>
             <footer className="w-full flex items-center justify-center py-3 bg-slate-100">
               <Link
                 isExternal
