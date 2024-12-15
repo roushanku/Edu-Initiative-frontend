@@ -5,12 +5,22 @@ import Cookies from "js-cookie";
 import login from "@/api/auth/login";
 import React, { useState } from "react";
 import { GoogleIcon, MicrosoftIcon } from "hugeicons-react";
+import { Sign } from "crypto";
+import register from "@/api/auth/register";
 
-const SignInCard = () => {
+const SignUpCard = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -18,24 +28,22 @@ const SignInCard = () => {
       const userData = {
         email: email,
         password: password,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
       };
 
-      const response = await login(userData);
+      const response = await register(userData);
 
       if (response.status === true) {
         toast.success(response.message, {
-          description: "Login is successfull",
-        });
-        const token = response.data.token;
-        Cookies.set("edu-initiative-user-token", token, {
-          path: "/",
-          expires: 7,
+          description: "account is created successfull",
         });
         // window.location.href = "/";
         return;
       } else {
         toast.error(response.message, {
-          description: "Login failed",
+          description: "register failed",
         });
       }
     }
@@ -56,12 +64,87 @@ const SignInCard = () => {
       isValid = false;
     }
 
+    if(!firstName || firstName.length < 3) {
+      setFirstNameError("First name must be at least 3 characters long.");
+      isValid = false;
+    }
+
+    if(!lastName || lastName.length < 3) {
+      setLastNameError("Last name must be at least 3 characters long.");
+      isValid = false;
+    }
+
+    if(!phoneNumber || phoneNumber.length !== 10) {
+      setPhoneNumberError("Phone number must be of 10 characters long.");
+      isValid = false;
+    }
+
     return isValid;
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-md p-6 mx-auto bg-white border rounded-lg shadow-md">
       <form onSubmit={handleSubmit} className="w-full mt-4 space-y-4">
+        <div>
+          <label
+            htmlFor="firstName"
+            className="block text-sm font-medium text-gray-700"
+          >
+            First Name
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            className={`mt-1 block w-full p-2 border rounded ${firstNameError ? "border-red-500" : "border-gray-300"}`}
+            placeholder="John"
+          />
+          {firstNameError && (
+            <p className="mt-1 text-sm text-red-600">{firstNameError}</p>
+          )}
+        </div>
+        <div>
+          <label
+            htmlFor="lastName"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            className={`mt-1 block w-full p-2 border rounded ${lastNameError ? "border-red-500" : "border-gray-300"}`}
+            placeholder="Doe"
+          />
+          {lastNameError && (
+            <p className="mt-1 text-sm text-red-600">{lastNameError}</p>
+          )}
+          </div>
+          <div>
+          <label
+            htmlFor="phoneNumber"
+            className="block text-sm font-medium text-gray-700"
+            >
+            Phone Number
+            </label>
+            <input
+            type="text"
+            id="phoneNumber"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+            className={`mt-1 block w-full p-2 border rounded ${phoneNumberError ? "border-red-500" : "border-gray-300"}`}
+            placeholder="1234567890"
+            />
+            {phoneNumberError && (
+            <p className="mt-1 text-sm text-red-600">{phoneNumberError}</p>
+            )}
+          </div>
         <div>
           <label
             htmlFor="email"
@@ -118,34 +201,19 @@ const SignInCard = () => {
           type="submit"
           className="w-full px-4 py-2  rounded bg-slate-300 hover:bg-slate-600 hover:text-white text-black "
         >
-          Sign in
+          Sign up
         </button>
         <p className="text-center">
-          Don&apos;t have an account?{" "}
-          <a href="/sign-up" className="text-blue-600 hover:underline">
-            Sign up
+          Already have an account?{" "}
+          <a href="/sign-in" className="text-blue-600 hover:underline">
+            Sign in
           </a>
         </p>
       </form>
       <div className="my-4 w-full border-t"></div>
-      <div className="flex flex-col w-full justify-center items-center space-y-2">
-        <button
-          onClick={() => alert("Sign in with Google")}
-          className="w-full flex flex-row justify-center items-center gap-2 px-4 py-2 border rounded hover:bg-gray-100"
-        >
-          <GoogleIcon className="text-blue-500" />
-          Sign in with Google
-        </button>
-        <button
-          onClick={() => alert("Sign in with Facebook")}
-          className="w-full px-4 gap-2 flex flex-row justify-center items-center py-2 border rounded hover:bg-gray-100"
-        >
-          <MicrosoftIcon className="text-blue-500" />
-          Sign in with Microsoft
-        </button>
-      </div>
+     
     </div>
   );
 };
 
-export default SignInCard;
+export default SignUpCard;

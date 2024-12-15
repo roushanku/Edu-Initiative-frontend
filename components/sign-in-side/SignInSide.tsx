@@ -7,20 +7,20 @@ import { title } from "../Primitives";
 const SignInSide = () => {
   const [mode, setMode] = useState<"light" | "dark">("light");
 
-  useEffect(() => {
-    const savedMode = localStorage.getItem("themeMode") as
-      | "light"
-      | "dark"
-      | null;
-    if (savedMode) {
-      setMode(savedMode);
-    } else {
-      const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setMode(systemPrefersDark ? "dark" : "light");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedMode = localStorage.getItem("themeMode") as
+  //     | "light"
+  //     | "dark"
+  //     | null;
+  //   if (savedMode) {
+  //     setMode(savedMode);
+  //   } else {
+  //     const systemPrefersDark = window.matchMedia(
+  //       "(prefers-color-scheme: dark)"
+  //     ).matches;
+  //     setMode(systemPrefersDark ? "dark" : "light");
+  //   }
+  // }, []);
 
   return (
     <div
