@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import { Divider } from "@nextui-org/react";
 import HomePageHeader from "@/components/Home/Header";
 import FindTutorGuide from "@/components/FindTutor";
-import InfoBar from "@/components/InformationBar";
+import InfoBar from "@/components/information_bar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/Home/HeroSection";
 import TeacherCard from "@/components/Home/TutorCard";

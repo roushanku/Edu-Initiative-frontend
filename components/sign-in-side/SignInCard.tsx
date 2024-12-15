@@ -1,7 +1,10 @@
-// components/SignInCard.tsx
+"use client";
 
-import { GoogleIcon, MicrosoftIcon } from "hugeicons-react";
+import { toast } from "sonner";
+import Cookies from "js-cookie";
+import login from "@/api/auth/login";
 import React, { useState } from "react";
+import { GoogleIcon, MicrosoftIcon } from "hugeicons-react";
 
 const SignInCard = () => {
   const [email, setEmail] = useState("");
@@ -9,11 +12,32 @@ const SignInCard = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (validateInputs()) {
-      console.log({ email, password });
-      // Handle sign-in logic here
+      const userData = {
+        email: email,
+        password: password,
+      };
+
+      const response = await login(userData);
+
+      if (response.status === true) {
+        toast.success(response.message, {
+          description: "Login is successfull",
+        });
+        const token = response.data.token;
+        Cookies.set("edu-initiative-user-token", token, {
+          path: "/",
+          expires: 7,
+        });
+        // window.location.href = "/";
+        return;
+      } else {
+        toast.error(response.message, {
+          description: "Login failed",
+        });
+      }
     }
   };
 
@@ -27,8 +51,8 @@ const SignInCard = () => {
       isValid = false;
     }
 
-    if (!password || password.length < 6) {
-      setPasswordError("Password must be at least 6 characters long.");
+    if (!password || password.length < 3) {
+      setPasswordError("Password must be at least 3 characters long.");
       isValid = false;
     }
 

@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/Navbar";
 import HomePageHeader from "@/components/Home/Header";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -49,6 +50,7 @@ export default function RootLayout({
               <div>
                 <HomePageHeader />
               </div>
+              <Toaster richColors />
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3 bg-slate-100">

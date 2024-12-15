@@ -1,4 +1,3 @@
-// components/SignInSide.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -8,7 +7,6 @@ import { title } from "../Primitives";
 const SignInSide = () => {
   const [mode, setMode] = useState<"light" | "dark">("light");
 
-  // Check for saved theme preference in localStorage or system preference
   useEffect(() => {
     const savedMode = localStorage.getItem("themeMode") as
       | "light"

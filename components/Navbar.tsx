@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -21,7 +22,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import ServicesDropDown from "./services/dropdown";
 import { Github, GithubIcon, Heart, Search, Twitter } from "lucide-react";
 import { Logo } from "./Icons";
-import { DiscordIcon } from "hugeicons-react";
+import { DiscordIcon, Login01Icon, LoginMethodIcon } from "hugeicons-react";
 
 export const Navbar = () => {
   const searchInput = (
@@ -131,16 +132,16 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<Heart className="text-danger" />}
-            variant="flat"
-          >
-            Sponsor
-          </Button>
+          <Link href="/sign-in">
+            <Button
+              as={Link}
+              className="text-sm font-normal text-default-600 bg-default-100"
+              startContent={<LoginMethodIcon className="" />}
+              variant="flat"
+            >
+              Sign In
+            </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
