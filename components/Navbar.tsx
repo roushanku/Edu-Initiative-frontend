@@ -24,6 +24,25 @@ import { Github, GithubIcon, Heart, Search, Twitter } from "lucide-react";
 import { Logo } from "./Icons";
 import { DiscordIcon, Login01Icon, LoginMethodIcon } from "hugeicons-react";
 
+import { User } from "lucide-react"; // User icon from Lucide
+
+const ProfileButton = () => {
+  return (
+    <Link href="/profile">
+      <Button
+        className="flex items-center gap-2"
+        color="default"
+        radius="full"
+        variant="bordered"
+        // onClick={() => }
+      >
+        <User className="w-5 h-5" /> {/* Profile Icon */}
+        Profile
+      </Button>
+    </Link>
+  );
+};
+
 export const Navbar = () => {
   const searchInput = (
     <Input
@@ -119,7 +138,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
+          {/* <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <Twitter className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
@@ -127,8 +146,7 @@ export const Navbar = () => {
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <Github className="text-default-500" />
-          </Link>
-          <ThemeSwitch />
+          </Link> */}
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
@@ -143,6 +161,8 @@ export const Navbar = () => {
             </Button>
           </Link>
         </NavbarItem>
+        <ProfileButton />
+        <ThemeSwitch />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
